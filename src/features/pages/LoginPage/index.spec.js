@@ -47,8 +47,9 @@ describe("LoginPage Test", () => {
     it("Should pass errors when they are present and not start login", () => {
         const wrapper = shallow(<LoginPage {...props} />);
         wrapper.find(Input).first().props().onBlur("test")
+        wrapper.find(Input).first().props().onBlur("")
         wrapper.find(Button).props().onClick()
-        expect(wrapper.find(Input).first().props().error).toEqual({"email": "Email should be a valid email address"})
+        expect(wrapper.find(Input).first().props().error).toEqual({"email": "Email should be a valid email address.", password: "Password is required."})
         expect(props.loginStart).not.toHaveBeenCalled()
     })
 

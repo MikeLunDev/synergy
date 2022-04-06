@@ -55,7 +55,7 @@ const SignupPage = (props) => {
     const handleSignup = useCallback(
         () => {
             let regexEmail = /^\w+([-]?\w+)*@\w+([-]?\w+)*(\.\w{2,3})+$/;
-            let regexPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
+            let regexPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
             let errorLocal = {}
             if(username.length === 0){
                 errorLocal.username = "Username is required."
@@ -64,7 +64,7 @@ const SignupPage = (props) => {
                 errorLocal.email = "Email should be a valid email address"
             }
             if (!regexPassword.test(password)) {
-                errorLocal.password = "Password should contain 8 characters, at least one uppercase, one lowercase and one number"
+                errorLocal.password = "Password should contain 8 characters, at least one uppercase, one lowercase and one number, and a special character between (@ $ ! % * ? &)"
             }
             if(verifyPassword !== password){
                 errorLocal.verifyPassword = "Password and confirmation should be the same."

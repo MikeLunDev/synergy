@@ -41,7 +41,10 @@ export const LoginPage = (props) => {
             let regexEmail = /^\w+([-]?\w+)*@\w+([-]?\w+)*(\.\w{2,3})+$/;
             let errorLocal = {}
             if (!regexEmail.test(email)) {
-                errorLocal.email = "Email should be a valid email address"
+                errorLocal.email = "Email should be a valid email address."
+            }
+            if(password.length === 0){
+                errorLocal.password = "Password is required."
             }
             if (Object.keys(errorLocal).length > 0) {
                 setError(errorLocal)
@@ -79,7 +82,7 @@ export const LoginPage = (props) => {
             <>
                 <h1 className="form-title-login">LOGIN</h1>
                 <Input name="email" type="email" placeholder="E-Mail Address" onBlur={handleEmail} error={error} />
-                <Input name="password" type="password" placeholder="Password" onBlur={handlePassword}/>
+                <Input name="password" type="password" placeholder="Password" onBlur={handlePassword} error={error}/>
                 <div style={{ height: "2rem" }} />
                 {serverError.length > 0 && <div className='error-box-form'>
                     <span>{serverError}</span>
