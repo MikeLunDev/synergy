@@ -1,32 +1,26 @@
-import 'src/publicPath';
+/*istanbul ignore file*/
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-import {App} from 'src/App';
+import Router from "../src/features/router";
 import { Provider } from "react-redux";
-import { configureStore, getDefaultMiddleware } from "@reduxjs/toolkit";
-import createSagaMiddleware from "redux-saga";
-import { sagas } from "src/store/saga";
-import reducer from "src/store/reducer";
-/* istanbul ignore file */
-const devMode = process.env.DEBUG === "true" || process.env.NODE_ENV === "development";
-const sagaMiddleware = createSagaMiddleware();
-const middleware = [...getDefaultMiddleware({ thunk: false }), sagaMiddleware];
+import { ConnectedRouter } from "connected-react-router";
+import { historyObject } from "./historyObject";
+import { createStore } from "./store";
 
-const store = configureStore({
-  reducer: reducer,
-  devTools: devMode,
-  middleware
-});
-
-sagaMiddleware["run"](sagas);
-
-if (devMode && module["hot"]) {
-  module["hot"].accept("./store/reducer/index.js", () => store.replaceReducer(reducer));
+if (process.env.NODE_ENV === "development") {
+  const { worker } = require('./mocks/browser')
+  worker.start({ onUnhandledRequest: "bypass" })
 }
+
+const store = createStore();
+
+
 
 /*instanbul ignore next */
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <ConnectedRouter history={historyObject}>
+      <Router />
+    </ConnectedRouter>
   </Provider>, document.getElementById('root'));

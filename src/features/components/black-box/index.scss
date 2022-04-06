@@ -1,0 +1,22 @@
+.black-box {
+    border-radius: 6px;
+    background: var(--color-black);
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    padding-bottom: 1.5rem;
+    margin: 6.5rem 3.5rem;
+    width: 38rem;
+    @media (max-width: 768px) {
+        margin: 4rem 0;
+        width: 31rem;
+    }
+
+    @media (min-width: 1400px) {
+        margin: 6.5rem 4.5rem;
+        width: 40rem;
+    }
+}

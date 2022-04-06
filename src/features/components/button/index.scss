@@ -1,0 +1,35 @@
+.btn{
+    display: grid;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 1rem 3rem;
+    transform: skewX(-27.5deg);
+    background: var(--btn-bg-color);
+    border: 2px solid var(--btn-bg-color);
+    transition: all 0.4s ease-in-out;
+    overflow: hidden;
+    border-radius: 6px;
+    &:hover{
+        cursor: pointer;
+        transform:  scale(1.07) skew(-27.5deg);
+    }
+    .btn-text {
+        
+        font-weight: 600;
+        color: var(--color-black);
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        transform: skewX(27.5deg);
+        font-family: var(--font-title);
+        line-height: 1.45;
+        @media (min-width: 768px) and (max-width: 1400px) {
+            font-size: 0.8rem;
+        }
+        @media (min-width: 768px) and (max-width: 1400px) {
+            font-size: 1.3rem;
+        }
+        @media (min-width: 1400px){
+            font-size: 1.5rem;
+        }
+    }
+}

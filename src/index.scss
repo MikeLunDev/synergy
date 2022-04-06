@@ -1,6 +1,14 @@
-@import "src/_vars";
+.synergy-theme {
+  --color-black: rgb(12, 11, 19);
+  --btn-bg-color: rgb(255, 208, 38);
+  --color-white: #fff;
+  --font-title: "Nova Flat", sans-serif;
+  --font-text: "Exo 2", sans-serif;
+  --color-error: rgb(255, 0, 0);
+}
+
+
 body {
   margin: 0;
-  font-family: $font-opensans;
   box-sizing: border-box;
 }

@@ -1,0 +1,49 @@
+.form-title-signup{
+    font-family: var(--font-title);
+    margin: 2rem 0 1rem;
+    @media (min-width: 1400px){
+        font-size: 4rem;
+        margin: 3rem 0 6rem;
+    }
+    @media (max-width: 1400px){
+        font-size: 3.8rem;
+        margin: 3rem 0 6rem;
+    }
+    @media (max-width: 768px){
+        font-size: 1.5rem;
+        margin: 3rem 0 6rem;
+    }
+}
+.error-box-form{
+    width: 70%;
+    background-color: var(--color-error);
+    padding: 1rem;
+    margin: 0px 0px 2rem 0px;
+    font-family: var(--font-text);
+    color: var(--color-black);
+    font-weight: 700;
+    text-align: center;
+}
+
+.info-text{
+    color: var(--color-white);
+    font-weight: 400;
+    font-family: var(--font-text);
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom: 0.01rem;
+    margin-top: 1.3rem;
+}
+
+.link{
+    text-decoration: none;
+    color: var(--color-white);
+    font-weight: 400;
+    font-family: var(--font-text);
+    letter-spacing: 1px;
+    transition: color 0.4s ease 0s;
+    &:hover{
+        color: blue;
+        cursor: pointer;
+    }
+}
