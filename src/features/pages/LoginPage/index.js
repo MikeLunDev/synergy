@@ -39,13 +39,9 @@ export const LoginPage = (props) => {
     const handleLogin = useCallback(
         () => {
             let regexEmail = /^\w+([-]?\w+)*@\w+([-]?\w+)*(\.\w{2,3})+$/;
-            let regexPassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
             let errorLocal = {}
             if (!regexEmail.test(email)) {
                 errorLocal.email = "Email should be a valid email address"
-            }
-            if (!regexPassword.test(password)) {
-                errorLocal.password = "Password should contain 8 characters, at least one uppercase, one lowercase and one number"
             }
             if (Object.keys(errorLocal).length > 0) {
                 setError(errorLocal)
@@ -83,7 +79,7 @@ export const LoginPage = (props) => {
             <>
                 <h1 className="form-title-login">LOGIN</h1>
                 <Input name="email" type="email" placeholder="E-Mail Address" onBlur={handleEmail} error={error} />
-                <Input name="password" type="password" placeholder="Password" onBlur={handlePassword} error={error} />
+                <Input name="password" type="password" placeholder="Password" onBlur={handlePassword}/>
                 <div style={{ height: "2rem" }} />
                 {serverError.length > 0 && <div className='error-box-form'>
                     <span>{serverError}</span>
